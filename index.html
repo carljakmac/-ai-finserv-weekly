@@ -4,126 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI in Financial Services Weekly — by Carl Jakobsson</title>
-<meta name="description" content="Weekly intelligence briefing on AI in financial services. Covering deals, regulation, use cases, and market analysis across banking, insurance, capital markets, payments, and wealth management.">
+<meta name="description" content="Weekly intelligence briefing on AI in financial services. Deals, regulation, use cases, and market analysis across banking, insurance, capital markets, payments, and wealth management.">
 <meta property="og:title" content="AI in Financial Services Weekly">
 <meta property="og:description" content="Deals, regulation, use cases, and market analysis across the full breadth of financial services">
 <meta property="og:type" content="website">
 <style>
-  :root{
-    --navy:#0c2340;
-    --gold:#c5a258;
-    --sand:#f4f1ec;
-    --card:#ffffff;
-    --ink:#1a1a1a;
-    --body:#444444;
-    --muted:#8fa3be;
-    --rule:#e5e0d8;
-  }
+  :root{--navy:#0c2340;--gold:#c5a258;--sand:#f4f1ec;--card:#fff;--ink:#1a1a1a;--body:#444;--muted:#8fa3be;--rule:#e5e0d8;}
   *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:var(--sand);
-    color:var(--ink);
-    font-family:Georgia,'Times New Roman',serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{margin:0;background:var(--sand);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:760px;margin:0 auto;padding:0 20px;}
   a{color:inherit;text-decoration:none;}
   :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
-
-  /* Masthead */
   .masthead{background:var(--navy);border-bottom:3px solid var(--gold);padding:64px 0 52px;}
-  .eyebrow{
-    margin:0 0 14px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);
-    font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;
-  }
+  .eyebrow{margin:0 0 14px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;}
   .masthead h1{margin:0 0 14px;font-size:clamp(32px,6vw,50px);line-height:1.08;color:#fff;font-weight:700;letter-spacing:-0.5px;}
   .masthead .tagline{margin:0 0 26px;font-size:clamp(15px,2.2vw,18px);color:#c9d5e4;max-width:36em;}
-  .byline{
-    margin:0;padding-top:20px;border-top:1px solid rgba(197,162,88,.35);
-    font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);
-    font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
-  }
+  .byline{margin:0;padding-top:20px;border-top:1px solid rgba(197,162,88,.35);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}
   .byline strong{color:#fff;font-weight:700;}
-
-  /* Intro */
   .intro{padding:34px 0 6px;font-size:16px;color:#3c3c3c;max-width:40em;}
-
-  /* Section label */
-  .label{
-    display:flex;align-items:center;gap:14px;margin:38px 0 18px;
-    font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);
-    font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;
-  }
+  .label{display:flex;align-items:center;gap:14px;margin:38px 0 18px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;}
   .label::after{content:"";flex:1;height:1px;background:var(--rule);}
-
-  /* Latest issue */
-  .latest{
-    display:block;position:relative;overflow:hidden;
-    background:var(--card);border-left:3px solid var(--gold);border-radius:3px;
-    padding:30px 32px 32px;box-shadow:0 1px 4px rgba(0,0,0,.07);
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
+  .latest{display:block;position:relative;overflow:hidden;background:var(--card);border-left:3px solid var(--gold);border-radius:3px;padding:30px 32px 32px;box-shadow:0 1px 4px rgba(0,0,0,.07);transition:transform .18s ease,box-shadow .18s ease;}
   .latest:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(12,35,64,.13);}
-  .latest__flag{
-    display:inline-block;margin-bottom:16px;padding:4px 10px;background:var(--navy);color:var(--gold);
-    font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2px;
-    text-transform:uppercase;font-weight:700;border-radius:2px;
-  }
-  .latest__no{
-    position:absolute;top:6px;right:22px;font-size:150px;line-height:1;font-weight:700;
-    color:var(--navy);opacity:.055;pointer-events:none;user-select:none;
-  }
+  .latest__flag{display:inline-block;margin-bottom:16px;padding:4px 10px;background:var(--navy);color:var(--gold);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;border-radius:2px;}
+  .latest__no{position:absolute;top:6px;right:22px;font-size:150px;line-height:1;font-weight:700;color:var(--navy);opacity:.055;pointer-events:none;user-select:none;}
   .latest__body{display:block;position:relative;}
-  .latest__meta,.row__meta{
-    display:block;margin-bottom:8px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size:12px;letter-spacing:.4px;color:#8c8c8c;
-  }
+  .latest__meta,.row__meta{display:block;margin-bottom:8px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.4px;color:#8c8c8c;}
   .latest__headline{display:block;font-size:clamp(21px,3.4vw,27px);line-height:1.25;color:var(--navy);margin-bottom:12px;font-weight:700;}
   .latest__summary{display:block;font-size:15px;color:var(--body);margin-bottom:20px;}
-  .latest__cta{
-    display:inline-block;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;
-    letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--navy);
-    border-bottom:2px solid var(--gold);padding-bottom:3px;
-  }
-
-  /* Archive rows */
+  .latest__cta{display:inline-block;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:3px;}
   .archive{list-style:none;margin:0;padding:0;}
   .archive li + li{border-top:1px solid var(--rule);}
-  .row{
-    display:grid;grid-template-columns:56px 1fr 24px;gap:18px;align-items:start;
-    padding:24px 12px 24px 4px;transition:background .16s ease, padding .16s ease;
-  }
+  .row{display:grid;grid-template-columns:56px 1fr 24px;gap:18px;align-items:start;padding:24px 12px 24px 4px;transition:background .16s ease,padding .16s ease;}
   .row:hover{background:rgba(255,255,255,.7);padding-left:12px;}
-  .row__no{
-    font-size:34px;line-height:1;font-weight:700;color:var(--gold);opacity:.55;
-    padding-top:2px;text-align:right;
-  }
+  .row__no{font-size:34px;line-height:1;font-weight:700;color:var(--gold);opacity:.55;padding-top:2px;text-align:right;}
   .row__headline{display:block;font-size:18px;line-height:1.3;color:var(--navy);margin-bottom:7px;font-weight:700;}
   .row__summary{display:block;font-size:14px;color:#5d5d5d;}
   .row__cta{color:var(--gold);font-size:19px;padding-top:22px;transition:transform .16s ease;}
   .row:hover .row__cta{transform:translateX(4px);}
-
-  /* Footer */
   footer{margin-top:56px;background:var(--navy);border-top:3px solid var(--gold);padding:28px 0;}
-  footer p{
-    margin:0 0 6px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size:12px;color:var(--muted);line-height:1.55;
-  }
+  footer p{margin:0 0 6px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:var(--muted);line-height:1.55;}
   footer .disclaimer{font-size:11px;color:#5c7a9b;margin:0;}
-
-  @media (max-width:560px){
-    .masthead{padding:44px 0 36px;}
-    .latest{padding:24px 22px 26px;}
-    .latest__no{font-size:104px;right:12px;}
-    .row{grid-template-columns:38px 1fr;gap:14px;}
-    .row__no{font-size:26px;}
-    .row__cta{display:none;}
-  }
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none !important;}
-  }
+  @media (max-width:560px){.masthead{padding:44px 0 36px;}.latest{padding:24px 22px 26px;}.latest__no{font-size:104px;right:12px;}.row{grid-template-columns:38px 1fr;gap:14px;}.row__no{font-size:26px;}.row__cta{display:none;}}
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
 </style>
 </head>
 <body>
@@ -142,19 +65,30 @@
 
   <h2 class="label">Current</h2>
 
-      <a class="latest" href="issues/issue-6.html">
+      <a class="latest" href="issues/issue-7.html">
         <span class="latest__flag">Latest issue</span>
-        <span class="latest__no" aria-hidden="true">6</span>
+        <span class="latest__no" aria-hidden="true">7</span>
         <span class="latest__body">
-          <span class="latest__meta">Issue #6 &nbsp;·&nbsp; Week of July 23 – 30, 2026</span>
-          <span class="latest__headline">The AI-Capex Reckoning Arrives — for Markets and Regulators at Once</span>
-          <span class="latest__summary">The Nasdaq 100 fell into a technical correction on an AI-spending selloff as Singapore's MAS named the sustainability of the AI investment boom a key financial-stability risk. The EU AI Act's 2 August milestone arrives, but the Digital Omnibus deferred the headline high-risk deadline to December 2027. Ant International raised $1.2bn for cross-border agentic commerce; AI-native insurer Corgi hit a $4bn valuation. Q2 bank earnings framed AI as spending, not savings, with Dimon projecting $1tn in annual AI capex. Plus: Anthropic, Goldman and Blackstone launch the deployment venture Ode.</span>
+          <span class="latest__meta">Issue #7 &nbsp;·&nbsp; Week of July 31 – August 5, 2026</span>
+          <span class="latest__headline">The Correction That Ate Last Week Lasted Barely a Week</span>
+          <span class="latest__summary">AI stocks staged a V-shaped recovery — the Dow closed at a record and Amazon became the newest $3tn company as hyperscaler earnings calmed the data-centre-capex fears behind July's selloff. The EU AI Act's 2 August milestone passed, with governance and penalty provisions now live. Visa agreed to buy behavioural-biometrics firm BioCatch for $2.4bn; Zenity raised $125m to secure AI agents. Circle, Increase and Dakota moved on US bank charters. A community bank put AI agents to work on seasoned-employee tasks, insurers and wealth platforms shipped agentic launches, and Revolut teamed with OpenAI to put ChatGPT in front of millions.</span>
           <span class="latest__cta">Read this issue <span aria-hidden="true">→</span></span>
         </span>
       </a>
 
   <h2 class="label">Archive</h2>
   <ul class="archive">
+        <li>
+          <a class="row" href="issues/issue-6.html">
+            <span class="row__no" aria-hidden="true">6</span>
+            <span class="row__body">
+              <span class="row__meta">Issue #6 &nbsp;·&nbsp; Week of July 23 – 30, 2026</span>
+              <span class="row__headline">The AI-Capex Reckoning Arrives — for Markets and Regulators at Once</span>
+              <span class="row__summary">The Nasdaq 100 fell into a technical correction on an AI-spending selloff as Singapore's MAS named the sustainability of the AI investment boom a key financial-stability risk. The EU AI Act's 2 August milestone arrives, but the Digital Omnibus deferred the headline high-risk deadline to December 2027. Ant International raised $1.2bn for cross-border agentic commerce; AI-native insurer Corgi hit a $4bn valuation. Q2 bank earnings framed AI as spending, not savings, with Dimon projecting $1tn in annual AI capex. Plus: Anthropic, Goldman and Blackstone launch the deployment venture Ode.</span>
+            </span>
+            <span class="row__cta" aria-hidden="true">→</span>
+          </a>
+        </li>
         <li>
           <a class="row" href="issues/issue-5.html">
             <span class="row__no" aria-hidden="true">5</span>
@@ -215,7 +149,7 @@
 
 <footer>
   <div class="wrap">
-    <p>AI in Financial Services Weekly &nbsp;|&nbsp; Created by Carl Jakobsson &nbsp;|&nbsp; 6 issues · latest 30 July 2026</p>
+    <p>AI in Financial Services Weekly &nbsp;|&nbsp; Created by Carl Jakobsson &nbsp;|&nbsp; 7 issues · latest 5 August 2026</p>
     <p class="disclaimer">This briefing is for informational purposes only and does not constitute investment, legal, or regulatory advice.</p>
   </div>
 </footer>
