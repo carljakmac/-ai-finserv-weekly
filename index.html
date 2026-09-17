@@ -4,8 +4,8 @@
 <meta name="description" content="Weekly intelligence briefing on AI in financial services.">
 <style>
   :root{--navy:#0c2340;--gold:#c5a258;--sand:#f4f1ec;--card:#fff;--ink:#1a1a1a;--body:#444;--muted:#8fa3be;--rule:#e5e0d8;}
-  *{box-sizing:border-box;} body{margin:0;background:var(--sand);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
-  .wrap{max-width:760px;margin:0 auto;padding:0 20px;} a{color:inherit;text-decoration:none;} :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  *{box-sizing:border-box;}body{margin:0;background:var(--sand);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px;}a{color:inherit;text-decoration:none;}:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
   .masthead{background:var(--navy);border-bottom:3px solid var(--gold);padding:64px 0 52px;}
   .eyebrow{margin:0 0 14px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;}
   .masthead h1{margin:0 0 14px;font-size:clamp(32px,6vw,50px);line-height:1.08;color:#fff;font-weight:700;letter-spacing:-0.5px;}
@@ -15,141 +15,39 @@
   .intro{padding:34px 0 6px;font-size:16px;color:#3c3c3c;max-width:40em;}
   .label{display:flex;align-items:center;gap:14px;margin:38px 0 18px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;}
   .label::after{content:"";flex:1;height:1px;background:var(--rule);}
-  .latest{display:block;position:relative;overflow:hidden;background:var(--card);border-left:3px solid var(--gold);border-radius:3px;padding:30px 32px 32px;box-shadow:0 1px 4px rgba(0,0,0,.07);transition:transform .18s ease,box-shadow .18s ease;}
+  .latest{display:block;position:relative;overflow:hidden;background:var(--card);border-left:3px solid var(--gold);border-radius:3px;padding:30px 32px 32px;box-shadow:0 1px 4px rgba(0,0,0,.07);transition:transform .18s,box-shadow .18s;}
   .latest:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(12,35,64,.13);}
   .latest__flag{display:inline-block;margin-bottom:16px;padding:4px 10px;background:var(--navy);color:var(--gold);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;border-radius:2px;}
-  .latest__no{position:absolute;top:6px;right:22px;font-size:150px;line-height:1;font-weight:700;color:var(--navy);opacity:.055;pointer-events:none;user-select:none;}
+  .latest__no{position:absolute;top:6px;right:22px;font-size:150px;line-height:1;font-weight:700;color:var(--navy);opacity:.055;pointer-events:none;}
   .latest__body{display:block;position:relative;}
   .latest__meta,.row__meta{display:block;margin-bottom:8px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.4px;color:#8c8c8c;}
   .latest__headline{display:block;font-size:clamp(21px,3.4vw,27px);line-height:1.25;color:var(--navy);margin-bottom:12px;font-weight:700;}
   .latest__summary{display:block;font-size:15px;color:var(--body);margin-bottom:20px;}
   .latest__cta{display:inline-block;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:3px;}
-  .archive{list-style:none;margin:0;padding:0;} .archive li + li{border-top:1px solid var(--rule);}
-  .row{display:grid;grid-template-columns:56px 1fr 24px;gap:18px;align-items:start;padding:24px 12px 24px 4px;transition:background .16s ease,padding .16s ease;}
+  .archive{list-style:none;margin:0;padding:0;}.archive li+li{border-top:1px solid var(--rule);}
+  .row{display:grid;grid-template-columns:56px 1fr 24px;gap:18px;align-items:start;padding:24px 12px 24px 4px;transition:background .16s,padding .16s;}
   .row:hover{background:rgba(255,255,255,.7);padding-left:12px;}
   .row__no{font-size:34px;line-height:1;font-weight:700;color:var(--gold);opacity:.55;padding-top:2px;text-align:right;}
   .row__headline{display:block;font-size:18px;line-height:1.3;color:var(--navy);margin-bottom:7px;font-weight:700;}
   .row__summary{display:block;font-size:14px;color:#5d5d5d;}
-  .row__cta{color:var(--gold);font-size:19px;padding-top:22px;transition:transform .16s ease;} .row:hover .row__cta{transform:translateX(4px);}
+  .row__cta{color:var(--gold);font-size:19px;padding-top:22px;transition:transform .16s;}.row:hover .row__cta{transform:translateX(4px);}
   footer{margin-top:56px;background:var(--navy);border-top:3px solid var(--gold);padding:28px 0;}
-  footer p{margin:0 0 6px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:var(--muted);line-height:1.55;} footer .disclaimer{font-size:11px;color:#5c7a9b;margin:0;}
+  footer p{margin:0 0 6px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:var(--muted);line-height:1.55;}footer .disclaimer{font-size:11px;color:#5c7a9b;margin:0;}
   @media (max-width:560px){.masthead{padding:44px 0 36px;}.latest{padding:24px 22px 26px;}.latest__no{font-size:104px;right:12px;}.row{grid-template-columns:38px 1fr;gap:14px;}.row__no{font-size:26px;}.row__cta{display:none;}}
-  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
 </style></head><body>
-<header class="masthead"><div class="wrap">
-  <p class="eyebrow">Weekly Intelligence Briefing</p>
-  <h1>AI in Financial Services</h1>
-  <p class="tagline">Deals, regulation, use cases, and market analysis across the full breadth of financial services</p>
-  <p class="byline">Created by <strong>Carl Jakobsson</strong></p>
-</div></header>
-<main class="wrap">
-  <p class="intro">A weekly briefing covering how AI is reshaping banking, insurance, capital markets, payments, wealth management, and private equity — with editorial &quot;So What&quot; analysis on what each development means operationally for FS firms. Published every week, covering the prior seven days.</p>
-  <h2 class="label">Current</h2>
-
-      <a class="latest" href="issues/issue-9.html">
-        <span class="latest__flag">Latest issue</span>
-        <span class="latest__no" aria-hidden="true">9</span>
-        <span class="latest__body">
-          <span class="latest__meta">Issue #9 &nbsp;·&nbsp; Week of August 28 – September 4, 2026</span>
-          <span class="latest__headline">The Week the AI Trade Stopped Worrying About AI and Started Worrying About the Fed</span>
-          <span class="latest__summary">Reports say Anthropic will unveil its IPO prospectus right after Labor Day, targeting a $1.5–2tn Nasdaq listing — potentially the largest IPO in history. Markets whipsawed on rate-hike fears as yields hit 2023 highs before a dovish Fed turn sparked the best day since early August. RateZip launched live rate comparison inside ChatGPT; Deutsche Bank's Private Bank tapped Thought Machine; Nasdaq Verafin and Q6 Cyber pooled dark-web fraud intelligence; and Australia's ASIC and APRA told firms to move from AI awareness to action.</span>
-          <span class="latest__cta">Read this issue <span aria-hidden="true">→</span></span>
-        </span>
-      </a>
-  <h2 class="label">Archive</h2>
-  <ul class="archive">
-        <li>
-          <a class="row" href="issues/issue-8.html">
-            <span class="row__no" aria-hidden="true">8</span>
-            <span class="row__body">
-              <span class="row__meta">Issue #8 &nbsp;·&nbsp; Week of August 21 – 27, 2026</span>
-              <span class="row__headline">The Threads We Track All Moved at Once — Nvidia Delivered, Anthropic's IPO Neared</span>
-              <span class="row__summary">The AI trade wobbled on a yield-driven selloff and a repricing-on-headlines backlash, then Nvidia delivered a blowout $96.2bn quarter, up 106%. Anthropic's IPO roadshow got underway with its filing reportedly naming AI backlash as a risk factor. Stripe agreed to buy LLM-router OpenRouter for over $7bn; Synchrony tied up with OpenAI to put financing inside ChatGPT shopping. The EU AI Act's enforcement era began, and Jamie Dimon convened a 40-company alliance on AI risk to critical infrastructure.</span>
-            </span>
-            <span class="row__cta" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="row" href="issues/issue-7.html">
-            <span class="row__no" aria-hidden="true">7</span>
-            <span class="row__body">
-              <span class="row__meta">Issue #7 &nbsp;·&nbsp; Week of July 31 – August 5, 2026</span>
-              <span class="row__headline">The Correction That Ate Last Week Lasted Barely a Week</span>
-              <span class="row__summary">AI stocks staged a V-shaped recovery — the Dow closed at a record and Amazon became the newest $3tn company as hyperscaler earnings calmed the data-centre-capex fears behind July's selloff. The EU AI Act's 2 August milestone passed. Visa agreed to buy behavioural-biometrics firm BioCatch for $2.4bn; Zenity raised $125m to secure AI agents. Circle, Increase and Dakota moved on US bank charters. Revolut teamed with OpenAI to put ChatGPT in front of millions.</span>
-            </span>
-            <span class="row__cta" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="row" href="issues/issue-6.html">
-            <span class="row__no" aria-hidden="true">6</span>
-            <span class="row__body">
-              <span class="row__meta">Issue #6 &nbsp;·&nbsp; Week of July 23 – 30, 2026</span>
-              <span class="row__headline">The AI-Capex Reckoning Arrives — for Markets and Regulators at Once</span>
-              <span class="row__summary">The Nasdaq 100 fell into a technical correction as Singapore's MAS named the sustainability of the AI investment boom a financial-stability risk. Ant International raised $1.2bn for cross-border agentic commerce; Corgi hit a $4bn valuation. Q2 bank earnings framed AI as spending, not savings, with Dimon projecting $1tn in annual AI capex. Anthropic, Goldman and Blackstone launched the deployment venture Ode.</span>
-            </span>
-            <span class="row__cta" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="row" href="issues/issue-5.html">
-            <span class="row__no" aria-hidden="true">5</span>
-            <span class="row__body">
-              <span class="row__meta">Issue #5 &nbsp;·&nbsp; Week of July 9 – 16, 2026</span>
-              <span class="row__headline">The Capex Bill Lands — and Agent Payments Get a Rulebook</span>
-              <span class="row__summary">The Linux Foundation launched the x402 Foundation with Visa, Mastercard, Stripe and AWS to govern autonomous agent-to-agent stablecoin payments. Semiconductors slid after TSMC raised 2026 capex guidance. Wall Street turned AI agents into digital coworkers, and JPMorgan's allocation agents beat a 60/40 benchmark in backtests. The BIS asked whether the AI build-out ends like the railways did.</span>
-            </span>
-            <span class="row__cta" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="row" href="issues/issue-4.html">
-            <span class="row__no" aria-hidden="true">4</span>
-            <span class="row__body">
-              <span class="row__meta">Issue #4 &nbsp;·&nbsp; Week of July 2 – 8, 2026</span>
-              <span class="row__headline">Consumers Already Trust ChatGPT for Financial Advice — and the BoE Wants Bespoke Agentic AI Regulation</span>
-              <span class="row__summary">The FCA's Mills review found over a quarter of UK consumers trust ChatGPT, Claude and Gemini for financial advice. The BoE signalled agentic AI needs bespoke regulation. HSBC, Lloyds and NatWest backed a UK sovereign AI model. Travelers built its own insurance LLM. Plus the debut of the AI Equity Pulse section.</span>
-            </span>
-            <span class="row__cta" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="row" href="issues/issue-3.html">
-            <span class="row__no" aria-hidden="true">3</span>
-            <span class="row__body">
-              <span class="row__meta">Issue #3 &nbsp;·&nbsp; Week of June 25 – July 1, 2026</span>
-              <span class="row__headline">The Plumbing Catches Up With the Hype</span>
-              <span class="row__summary">Mastercard's Agent Pay for Machines went live as 150+ firms backed a new Open USD stablecoin standard. The Fed, OCC and FDIC carved genAI and agentic AI out of model risk guidance. Gartner's AI report card: only 19% of firms see real benefit. HSBC, Santander, Citi and DXC confirmed enterprise-scale AI commitments.</span>
-            </span>
-            <span class="row__cta" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="row" href="issues/issue-2.html">
-            <span class="row__no" aria-hidden="true">2</span>
-            <span class="row__body">
-              <span class="row__meta">Issue #2 &nbsp;·&nbsp; Week of May 14 – 20, 2026</span>
-              <span class="row__headline">Consolidation Week — and All the More Revealing for It</span>
-              <span class="row__summary">Singapore's MAS launched an unprecedented five-bank AI scam detection pool. Greenboard raised $20M as AI-native compliance graduated to institutional infrastructure. Citadel's quant research surfaced the AI era's central paradox: when every fund trains on the same data, alpha evaporates. Consumer acceptance of AI in insurance nearly doubled in twelve months.</span>
-            </span>
-            <span class="row__cta" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="row" href="issues/issue-1.html">
-            <span class="row__no" aria-hidden="true">1</span>
-            <span class="row__body">
-              <span class="row__meta">Issue #1 &nbsp;·&nbsp; Week of May 7 – 13, 2026</span>
-              <span class="row__headline">A Defining Week for AI in Financial Services</span>
-              <span class="row__summary">Anthropic launched 10 purpose-built AI agents for Wall Street and formed a $1.5B joint venture with Goldman Sachs, Blackstone and others. The IMF sounded the alarm on AI-driven cyber risk. The Bank of England's PRA flagged advanced AI models as a source of significant disruption. Cambridge's 2026 report confirmed 81% adoption — but only 14% view AI as transformational.</span>
-            </span>
-            <span class="row__cta" aria-hidden="true">→</span>
-          </a>
-        </li>
-  </ul>
-</main>
-<footer><div class="wrap">
-  <p>AI in Financial Services Weekly &nbsp;|&nbsp; Created by Carl Jakobsson &nbsp;|&nbsp; 9 issues · latest 4 September 2026</p>
-  <p class="disclaimer">This briefing is for informational purposes only and does not constitute investment, legal, or regulatory advice.</p>
-</div></footer>
+<header class="masthead"><div class="wrap"><p class="eyebrow">Weekly Intelligence Briefing</p><h1>AI in Financial Services</h1><p class="tagline">Deals, regulation, use cases, and market analysis across the full breadth of financial services</p><p class="byline">Created by <strong>Carl Jakobsson</strong></p></div></header>
+<main class="wrap"><p class="intro">A weekly briefing covering how AI is reshaping banking, insurance, capital markets, payments, wealth management, and private equity — with editorial &quot;So What&quot; analysis on what each development means operationally for FS firms. Published every week, covering the prior seven days.</p><h2 class="label">Current</h2>
+      <a class="latest" href="issues/issue-10.html"><span class="latest__flag">Latest issue</span><span class="latest__no" aria-hidden="true">10</span><span class="latest__body"><span class="latest__meta">Issue #10 &nbsp;·&nbsp; Week of September 10 – 16, 2026</span><span class="latest__headline">The AI Trade Took Two Blows at Once — a Rate Shock and a Safety Scare</span><span class="latest__summary">The Fed was set to raise rates for the first time since 2023 as the 10-year yield hit a 2007 high and Brent passed $100. In an unprecedented turn, Anthropic's Dario Amodei urged labs to &quot;pace the frontier&quot; — cosigned by Altman, Hassabis and Musk — and AI stocks fell while cyber rallied. Altman said OpenAI won't list in 2026. MUFG-backed Qupital raised $300m for AI SME lending; DBS and Stripe formed an agentic-payments partnership in APAC; and Washington weighed mandatory AI risk mitigation as the CLARITY crypto bill stalled.</span><span class="latest__cta">Read this issue <span aria-hidden="true">→</span></span></span></a><h2 class="label">Archive</h2><ul class="archive">
+        <li><a class="row" href="issues/issue-9.html"><span class="row__no" aria-hidden="true">9</span><span class="row__body"><span class="row__meta">Issue #9 &nbsp;·&nbsp; Week of August 28 – September 4, 2026</span><span class="row__headline">The Week the AI Trade Stopped Worrying About AI and Started Worrying About the Fed</span><span class="row__summary">Anthropic was reported to be unveiling its IPO prospectus just after Labor Day at a $1.5–2tn target. Markets swung on rate-hike fears as yields hit 2023 highs. RateZip launched live rate comparison inside ChatGPT; Deutsche Bank's Private Bank tapped Thought Machine; Nasdaq Verafin and Q6 Cyber pooled dark-web fraud intelligence; and Australia's ASIC and APRA told firms to move from AI awareness to action.</span></span><span class="row__cta" aria-hidden="true">→</span></a></li>
+        <li><a class="row" href="issues/issue-8.html"><span class="row__no" aria-hidden="true">8</span><span class="row__body"><span class="row__meta">Issue #8 &nbsp;·&nbsp; Week of August 21 – 27, 2026</span><span class="row__headline">The Threads We Track All Moved at Once — Nvidia Delivered, Anthropic's IPO Neared</span><span class="row__summary">The AI trade wobbled then Nvidia delivered a blowout $96.2bn quarter, up 106%. Anthropic's IPO roadshow got underway with its filing reportedly naming AI backlash as a risk factor. Stripe agreed to buy OpenRouter for over $7bn; Synchrony tied up with OpenAI on ChatGPT shopping. The EU AI Act's enforcement era began, and Dimon convened a 40-company alliance on AI risk.</span></span><span class="row__cta" aria-hidden="true">→</span></a></li>
+        <li><a class="row" href="issues/issue-7.html"><span class="row__no" aria-hidden="true">7</span><span class="row__body"><span class="row__meta">Issue #7 &nbsp;·&nbsp; Week of July 31 – August 5, 2026</span><span class="row__headline">The Correction That Ate Last Week Lasted Barely a Week</span><span class="row__summary">AI stocks staged a V-shaped recovery — the Dow closed at a record and Amazon became the newest $3tn company. Visa agreed to buy BioCatch for $2.4bn; Zenity raised $125m to secure AI agents. Circle, Increase and Dakota moved on US bank charters. Revolut teamed with OpenAI to put ChatGPT in front of millions.</span></span><span class="row__cta" aria-hidden="true">→</span></a></li>
+        <li><a class="row" href="issues/issue-6.html"><span class="row__no" aria-hidden="true">6</span><span class="row__body"><span class="row__meta">Issue #6 &nbsp;·&nbsp; Week of July 23 – 30, 2026</span><span class="row__headline">The AI-Capex Reckoning Arrives — for Markets and Regulators at Once</span><span class="row__summary">The Nasdaq 100 fell into a technical correction as Singapore's MAS named the AI investment boom a financial-stability risk. Ant International raised $1.2bn for cross-border agentic commerce; Corgi hit a $4bn valuation. Q2 bank earnings framed AI as spending, with Dimon projecting $1tn in annual AI capex. Anthropic, Goldman and Blackstone launched the deployment venture Ode.</span></span><span class="row__cta" aria-hidden="true">→</span></a></li>
+        <li><a class="row" href="issues/issue-5.html"><span class="row__no" aria-hidden="true">5</span><span class="row__body"><span class="row__meta">Issue #5 &nbsp;·&nbsp; Week of July 9 – 16, 2026</span><span class="row__headline">The Capex Bill Lands — and Agent Payments Get a Rulebook</span><span class="row__summary">The Linux Foundation launched the x402 Foundation with Visa, Mastercard, Stripe and AWS to govern agent-to-agent stablecoin payments. Semiconductors slid after TSMC raised capex guidance. Wall Street turned AI agents into digital coworkers, and JPMorgan's allocation agents beat a 60/40 benchmark in backtests. The BIS asked whether the AI build-out ends like the railways did.</span></span><span class="row__cta" aria-hidden="true">→</span></a></li>
+        <li><a class="row" href="issues/issue-4.html"><span class="row__no" aria-hidden="true">4</span><span class="row__body"><span class="row__meta">Issue #4 &nbsp;·&nbsp; Week of July 2 – 8, 2026</span><span class="row__headline">Consumers Already Trust ChatGPT for Financial Advice — and the BoE Wants Bespoke Agentic AI Regulation</span><span class="row__summary">The FCA's Mills review found over a quarter of UK consumers trust ChatGPT, Claude and Gemini for financial advice. The BoE signalled agentic AI needs bespoke regulation. HSBC, Lloyds and NatWest backed a UK sovereign AI model. Travelers built its own insurance LLM. Plus the debut of the AI Equity Pulse section.</span></span><span class="row__cta" aria-hidden="true">→</span></a></li>
+        <li><a class="row" href="issues/issue-3.html"><span class="row__no" aria-hidden="true">3</span><span class="row__body"><span class="row__meta">Issue #3 &nbsp;·&nbsp; Week of June 25 – July 1, 2026</span><span class="row__headline">The Plumbing Catches Up With the Hype</span><span class="row__summary">Mastercard's Agent Pay for Machines went live as 150+ firms backed a new Open USD stablecoin standard. The Fed, OCC and FDIC carved genAI and agentic AI out of model risk guidance. Gartner's AI report card: only 19% of firms see real benefit. HSBC, Santander, Citi and DXC confirmed enterprise-scale AI commitments.</span></span><span class="row__cta" aria-hidden="true">→</span></a></li>
+        <li><a class="row" href="issues/issue-2.html"><span class="row__no" aria-hidden="true">2</span><span class="row__body"><span class="row__meta">Issue #2 &nbsp;·&nbsp; Week of May 14 – 20, 2026</span><span class="row__headline">Consolidation Week — and All the More Revealing for It</span><span class="row__summary">Singapore's MAS launched a five-bank AI scam detection pool. Greenboard raised $20M as AI-native compliance graduated to institutional infrastructure. Citadel's quant research surfaced the AI era's central paradox: when every fund trains on the same data, alpha evaporates. Consumer acceptance of AI in insurance nearly doubled in twelve months.</span></span><span class="row__cta" aria-hidden="true">→</span></a></li>
+        <li><a class="row" href="issues/issue-1.html"><span class="row__no" aria-hidden="true">1</span><span class="row__body"><span class="row__meta">Issue #1 &nbsp;·&nbsp; Week of May 7 – 13, 2026</span><span class="row__headline">A Defining Week for AI in Financial Services</span><span class="row__summary">Anthropic launched 10 purpose-built AI agents for Wall Street and formed a $1.5B joint venture with Goldman Sachs, Blackstone and others. The IMF sounded the alarm on AI-driven cyber risk. The Bank of England's PRA flagged advanced AI models as a source of significant disruption. Cambridge's 2026 report confirmed 81% adoption — but only 14% view AI as transformational.</span></span><span class="row__cta" aria-hidden="true">→</span></a></li>
+  </ul></main>
+<footer><div class="wrap"><p>AI in Financial Services Weekly &nbsp;|&nbsp; Created by Carl Jakobsson &nbsp;|&nbsp; 10 issues · latest 16 September 2026</p><p class="disclaimer">This briefing is for informational purposes only and does not constitute investment, legal, or regulatory advice.</p></div></footer>
 </body></html>
